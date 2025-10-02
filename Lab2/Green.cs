@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Lab2
 {
@@ -11,9 +11,12 @@ namespace Lab2
             double answer = 0;
 
             // code here
-
+            for (int k = 2; k <= n; k += 2)
+            {
+                answer += (double)k / (k + 1);
+            }
             // end
-
+            
             return answer;
         }
         public double Task2(int n, double x)
@@ -21,7 +24,13 @@ namespace Lab2
             double answer = 0;
 
             // code here
-
+            double r = 1.0 / x;
+            double b = 1.0;
+            for (int k = 0; k <= n; k++)
+            {
+                answer += b;
+                b *= r;
+            }
             // end
 
             return answer;
@@ -31,7 +40,16 @@ namespace Lab2
             long answer = 0;
 
             // code here
+            long a = 1;
 
+            for (int i = 0; i <= n; i++)
+            {
+                if (i > 0)
+                {
+                    a *= i;
+                }
+                answer += a;
+            }
             // end
 
             return answer;
@@ -41,6 +59,23 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            const double e = 0.0001;
+            double s = 0, a;
+            int n = 1;
+            double b;
+            while (true)
+            {
+                double c = Math.Pow(x, n);
+                double d = n * c;
+                b = Math.Sin(d);
+                if (Math.Abs(b) < e)
+                {
+                    break; 
+                }
+                answer += b; 
+                n++;                
+            }
+
 
             // end
 
@@ -48,10 +83,18 @@ namespace Lab2
         }
         public int Task5(double x)
         {
-            int answer = 0;
+            int answer = 1;
 
             // code here
-
+            double e = 0.0001;
+            double ax = Math.Abs(x);
+            double current = Math.Abs(1.0 / x - 1.0);
+            if (current < e) return answer;
+            while (current >= e)
+            {
+                answer++;
+                current /= ax;
+            }
             // end
 
             return answer;
@@ -61,6 +104,13 @@ namespace Lab2
             int answer = 0;
 
             // code here
+            int elem = 1, i = 0;
+            while (elem < limit)
+            {
+                elem *= 2;
+                answer += elem;
+                i++;
+            }
 
             // end
 
@@ -72,10 +122,15 @@ namespace Lab2
             int answer = 0;
 
             // code here
-
+            double current = L;
+            while (current > Da)
+            {
+                current /= 2.0;
+                answer++;
+            }
+            return answer;
             // end
 
-            return answer;
         }
         public (double SS, double SY) Task8(double a, double b, double h)
         {
@@ -83,10 +138,23 @@ namespace Lab2
             double SY = 0;
 
             // code here
-
-            // end
-
+            for (double x = a; x <= b+1e-12; x += h)
+            {
+                double term = x;
+                double currentSum = term;
+                int i = 1;
+                while (Math.Abs(term) >= 0.0001)
+                {
+                    term = Math.Pow(-1, i) * Math.Pow(x, 2 * i + 1) / (2 * i + 1);
+                    currentSum += term;
+                    i++;
+                }
+                SS += currentSum;
+                SY += Math.Atan(x);
+            }
             return (SS, SY);
         }
+            // end
+            
+        }
     }
-}
