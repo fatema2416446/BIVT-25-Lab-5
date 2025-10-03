@@ -1,0 +1,15 @@
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\bin\Debug\net8.0\Lab2.exe
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\bin\Debug\net8.0\Lab2.deps.json
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\bin\Debug\net8.0\Lab2.runtimeconfig.json
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\bin\Debug\net8.0\Lab2.dll
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\bin\Debug\net8.0\Lab2.pdb
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\Lab2.GeneratedMSBuildEditorConfig.editorconfig
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\Lab2.AssemblyInfoInputs.cache
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\Lab2.AssemblyInfo.cs
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\Lab2.csproj.CoreCompileInputs.cache
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\Lab2.sourcelink.json
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\Lab2.dll
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\refint\Lab2.dll
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\Lab2.pdb
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\Lab2.genruntimeconfig.cache
+D:\study\C#\Labs\BIVT-25-Lab-2\Lab2\obj\Debug\net8.0\ref\Lab2.dll
