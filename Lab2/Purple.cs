@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
+using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace Lab2
@@ -10,85 +12,135 @@ namespace Lab2
         public int Task1(int n, int p, int h)
         {
             int answer = 0;
-
-            // code here
-
-            // end
-
+            for (int i = 0; i < n; i++) {
+                answer += (p + i * h)*(p + i * h);
+            }
             return answer;
+
+
+
         }
         public (int quotient, int remainder)  Task2(int a, int b)
         {
             int quotient = 0;
-            int remainder = 0;
+            int remainder = a;
 
-            // code here
-
-            // end
+            while (remainder >= b)
+    {
+        remainder -= b;
+        quotient+=1;
+    }
 
             return (quotient, remainder);
         }
         public double Task3()
         {
-            double answer = 0;
+           
 
-            // code here
+            double a1 = 1;
+            double a2 = 1;
+            double a3 = a1 + a2;
 
-            // end
-
-            return answer;
+            while (Math.Abs(a1 / a2 - a3 / a1) > E)
+            {
+                a2 = a1;
+                a1 = a3;
+                a3 = a1 + a2;
+            }
+            Console.WriteLine(a3 / a1);
+            return a3 / a1;
         }
         public int Task4(double b, double q)
         {
-            int answer = 0;
-
-            // code here
-
-            // end
-
-            return answer;
+            int answer = 1;
+            for (double i = 1; Math.Abs(b * q * i) > E; i *= q)
+            {
+                answer += 1;
+            }
+            return answer+1;
         }
         public int Task5(int a, int b)
         {
             int answer = 0;
-
-            // code here
-
-            // end
-
+            long number = a;
+            while (b > 0)
+            {
+                number *= b;
+                b--;
+            }
+            while(number >= 10)
+                {
+                    number /= 10;
+                    answer++;
+                }
             return answer;
+            
+
         }
         public long Task6()
         {
-            long answer = 0;
-
-            // code here
-
-            // end
-
-            return answer;
+            BigInteger answer = 1;
+            for (int i = 0; i < 64; i++)
+            {
+                answer *= 2;
+            }
+            answer -= 1;
+            double res = (double) answer / 15_000_000.0;
+            return (long)Math.Floor(res);
         }
 
         public int Task7(double S, double d)
         {
             int answer = 0;
+            double c = S;
+            double i = S;
+            double s = i*(d / 1200.0);
+            while (c < 2 * i)
+            {
+                if (answer % 12 == 0)
+                {
+                    s = c * (d / 1200.0);
+                }
+                c += s;
+                answer++;
+            }
 
-            // code here
-
-            // end
-
-            return answer;
+                return answer;
         }
         public (double SS, double SY) Task8(double a, double b, double h)
         {
             double SS = 0;
             double SY = 0;
-
-            // code here
-
-            // end
+            if (h > 0)
+            {
+                for (double x = a; x <= b + 1e-12; x += h)
+                {
+                    double s = 0, t = 1;
+                    for (int i = 0; Math.Abs(t) >= E; i++)
+                    {
+                        s += t;
+                        t *= -x * x / ((2 * i + 1) * (2 * i + 2));
+                    }
+                    SS += s;
+                    SY += Math.Cos(x);
+                }
+            }
+            else if (h < 0)
+            {
+                for (double x = a; x >= b - 1e-12; x += h)
+                {
+                    double s = 0, t = 1;
+                    for (int i = 0; Math.Abs(t) >= E; i++)
+                    {
+                        s += t;
+                        t *= -x * x / ((2 * i + 1) * (2 * i + 2));
+                    }
+                    SS += s;
+                    SY += Math.Cos(x);
+                }
+            }
 
             return (SS, SY);
         }
     }
-}
+}   
