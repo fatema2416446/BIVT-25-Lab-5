@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Lab2
 {
@@ -11,7 +11,15 @@ namespace Lab2
             double answer = 0;
 
             // code here
+            if (n < 2)
+            {
+                answer = 0;
+            }
 
+            for (int k = 2; k <= n; k += 2)
+            {
+                answer += (double)k / (k + 1);
+            }
             // end
 
             return answer;
@@ -21,7 +29,11 @@ namespace Lab2
             double answer = 0;
 
             // code here
-
+            for (int i = 0; i <= n; i++)
+            {
+                answer += Math.Pow(x, -i);
+            }
+            
             // end
 
             return answer;
@@ -31,7 +43,15 @@ namespace Lab2
             long answer = 0;
 
             // code here
-
+            long f = 1;
+            for (int i = 0; i <= n; i++)
+            {
+                if (i > 0)
+                {
+                    f *= i;
+                }
+                answer += f;
+            }
             // end
 
             return answer;
@@ -39,9 +59,24 @@ namespace Lab2
         public double Task4(double x)
         {
             double answer = 0;
-
+            int n = 1;
             // code here
+            while (true)
+            {
+                double t=Math.Sin(n*Math.Pow(x, n));
+                if (Math.Abs(t) < 1e-4)
+                {
+                    break;
+                }
 
+                answer += t;
+                n++;
+
+                if (n > 1000)
+                {
+                    break;
+                }
+            }
             // end
 
             return answer;
@@ -51,7 +86,13 @@ namespace Lab2
             int answer = 0;
 
             // code here
-
+            answer++;
+            double a = x;
+            while (Math.Abs(1 / a - x / a) >= E)
+            {
+                answer++;
+                a *= x;
+            }
             // end
 
             return answer;
@@ -61,7 +102,14 @@ namespace Lab2
             int answer = 0;
 
             // code here
-
+            int elem = 1;
+            int i = 0;
+            while (elem < limit)
+            {
+                elem *= 2;
+                answer += elem;
+                i++;
+            }
             // end
 
             return answer;
@@ -72,7 +120,12 @@ namespace Lab2
             int answer = 0;
 
             // code here
-
+            double Da = 1e-10;
+            while (L > Da)
+            {
+                L /= 2.0;
+                answer++;
+            }
             // end
 
             return answer;
@@ -83,7 +136,23 @@ namespace Lab2
             double SY = 0;
 
             // code here
-
+            for (double x = a; x <= b + E; x += h)
+            {
+                SY += Math.Atan(x);
+                int sn = -1;
+                double mn = 1;
+                for (int i = 0; ; i++)
+                {
+                    double s = -1 * sn * x * mn / (2 * i + 1);
+                    SS += s;
+                    sn *= -1;
+                    mn *= x * x;
+                    if (Math.Abs(s) < E)
+                    {
+                        break;
+                    }
+                }
+            }
             // end
 
             return (SS, SY);
